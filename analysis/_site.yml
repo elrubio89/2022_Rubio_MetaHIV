@@ -12,7 +12,7 @@ navbar:
   right:
   - icon: fab fa-github
     text: Source code
-    href: https://github.com/elrubio89/MicrobialGenomics/2022_Rubio_MetaHIV
+    href: https://github.com/elrubio89/2022_Rubio_MetaHIV
 output:
   workflowr::wflow_html:
     toc: yes
