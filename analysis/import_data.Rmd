@@ -1,0 +1,37 @@
+---
+title: "Import data"
+author: "Elisa Rubio"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Untar Files
+
+```{r eval=TRUE, warning=FALSE, include=TRUE}
+aribaData<-list.files("data/aribaData", full.names = TRUE)
+grootData<-list.files("data/grootData", full.names = TRUE)
+dir.create("output/aribaData")
+dir.create("output/grootData") 
+lapply(aribaData, untar,  exdir = "output/aribaData/")
+lapply(grootData, untar,  exdir = "output/grootData/")
+```
+
+## Reorganize files
+
+```{bash}
+cp  -r output/aribaData/tmp/*/ABR/Ariba/*  output/aribaData
+rm -r output/aribaData/tmp
+cp  -r output/grootData/tmp/*/ABR/Groot/*/*  output/grootData
+rm -r output/grootData/tmp
+```
+
+
+
+
+```{r eval=FALSE, include=FALSE}
+save(dgeObj, file="resultados/dgeObj.RDA")
+load("resultados/dgeObj.RDA")
+
+```
+
